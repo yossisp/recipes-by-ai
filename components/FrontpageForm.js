@@ -21,30 +21,19 @@ export default function FrontPageForm() {
         method="POST"
         name="ingredients"
     >
-        <label htmlFor="message">
-            {/* <span style={{
-                fontSize: 16,
-                color: 'black',
-            }}>Enter ingredients</span> */}
-        </label>
-        <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            width: 500
-        }}>
+        <label htmlFor="message" />
+        <div className="flex-div">
             <textarea
-                id="message" 
-                name="message" 
-                required 
-                maxLength="140" 
+                id="message"
+                name="message"
+                required
+                maxLength="140"
                 rows="3"
                 placeholder="Enter ingredients..."
                 style={{ zIndex: 9, width: '80%' }}
                 onChange={onTextAreaChange}
             />
-            <div style={{
-                paddingLeft: 10
-            }}>
+            <div className="button-div">
                 <button type="submit" className={styles.card} style={{
                     color: 'white',
                     backgroundColor: 'green',
@@ -54,6 +43,26 @@ export default function FrontPageForm() {
                     <span style={{ fontSize: 20 }}>Generate</span>
                 </button>
             </div>
+
         </div>
+        <style jsx>{`
+        div.flex-div {
+            width: 500px;
+            display: flex;
+            align-items:center;
+        }
+        div.button-div {
+            padding-left: 10px
+        }
+        @media screen and (max-width: 600px) {
+            div.flex-div {
+                flex-direction: column;
+                width: 100vw;   
+            }
+            div.button-div {
+                padding-top: 16px;
+            }
+        }
+      `}   </style>
     </form >
 }
